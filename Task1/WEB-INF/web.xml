@@ -1,0 +1,13 @@
+<web-app>
+
+    <servlet>
+        <servlet-name>task1_printprograming</servlet-name>
+        <servlet-class>PrintPrograming</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>task1_printprograming</servlet-name>
+        <url-pattern>/print</url-pattern>
+    </servlet-mapping>
+
+</web-app>

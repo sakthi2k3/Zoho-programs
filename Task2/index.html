@@ -1,0 +1,102 @@
+<html>
+<head>
+    <style>
+        body 
+        {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container 
+        {
+            width: 400px;
+            margin: 20% auto;
+            background-color: #fff;
+            padding: 10px;
+            border: 2px solid rgb(15, 14, 16);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 
+        {
+            text-align: center;
+            margin-top: 20px;
+            color: rgb(15, 14, 16);
+        }
+
+        hr 
+        {
+            border: none;
+            border-top: 1px solid #000;
+            margin-bottom: 20px;
+        }
+
+        .form-container 
+        {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label 
+        {
+            font-weight: bold;
+            color: rgb(15, 14, 16);
+        }
+
+        input[type="text"] 
+        {
+            padding: 8px;
+            width: 80%;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button 
+        {
+            padding: 5px 14px; 
+            margin: 10px;
+            border: 2px solid rgb(15, 14, 16);
+            background-color: #4CAF50;; 
+            color: #f0f0f0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover 
+        {
+            background-color: #f0f0f0;
+        }
+
+        #result 
+        {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: rgb(15, 14, 16);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CALCULATE SALARY</h1>
+        <hr>
+
+        <div class="form-container">
+            <form method="get" action="salary">
+                <label for="days">Enter the no of working days:</label><br>
+                <input id="days" type="text" name="days"><br>
+                <button type="submit">Calculate</button>
+            </form>
+        </div>
+
+        <h3 id="result">The total salary given is: </h3>
+    </div>
+</body>
+<html>
+	

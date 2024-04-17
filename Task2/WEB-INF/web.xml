@@ -1,0 +1,13 @@
+<web-app>
+
+<servlet>
+<servlet-name>calc_salary</servlet-name>
+<servlet-class>EmployeeSalary</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>calc_salary</servlet-name>
+<url-pattern>/salary</url-pattern>
+</servlet-mapping>
+
+</web-app>	
