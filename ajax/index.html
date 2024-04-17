@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Board</title>
+    <style>
+        #board 
+        {
+            display: grid;
+            gap: 2px; 
+            border: 2px solid black; 
+            padding: 5px;
+            font-size: 20px; 
+            height: 300px;
+        }
+
+        #para
+        {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Board</h1>
+    <div id="board"><p id="para"></p></div>
+
+    <script>
+        function updateBoard() 
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() 
+            {
+                if (xhr.readyState === XMLHttpRequest.DONE) 
+                {
+                    if (xhr.status === 200) 
+                    {
+                        document.getElementById('para').innerHTML = xhr.responseText;
+                    } 
+                    else 
+                    {
+                        document.getElementById('board').textContent = 'Error loading file.';
+                    }
+                }
+            };
+            xhr.open('GET', 'example.txt', true);
+            xhr.send();
+        }
+
+        function startUpdatingBoard() 
+        {
+            updateBoard();
+            setInterval(updateBoard, 1000); 
+        }
+
+        startUpdatingBoard();
+    </script>
+</body>
+</html>

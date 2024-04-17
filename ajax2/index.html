@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Display New Text with AJAX</title>
+<style>
+    body 
+	{
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    h1 
+	{
+        margin-top: 20px;
+    }
+    #loadTextBtn 
+	{
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    #displayText 
+	{
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#loadTextBtn").click(function(){
+        $.ajax({
+            url: "external-content.html", 
+            type: "GET",
+            success: function(response){
+                $("#displayText").html(response); 
+            },
+            error: function(xhr, status, error){
+                console.error("Error occurred:", error);
+            }
+        });
+    });
+});
+</script>
+</head>
+<body>
+    <h1>Display New Text with AJAX</h1>
+    <div>
+        <button id="loadTextBtn">Load New Text</button>
+    </div>
+    <div id="displayText">Click the button to load new text</div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<html>
+<title>CRUD Operations</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body 
+	{
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    .container 
+	{
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+
+    .title 
+	{
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .btn 
+	{
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover
+	{
+        background-color: #0056b3;
+    }
+
+    .icon 
+	{
+        margin-right: 10px;
+    }
+
+    .form-group 
+	{
+        margin-bottom: 15px;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    label 
+	{
+        display: inline-block;
+        width: 120px;
+    }
+
+    input[type="text"],
+    input[type="email"] 
+	{
+        width: 80%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    input[type="submit"] 
+	{
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover 
+	{
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" id="main">
+    <div class="title">CRUD Operations</div>
+    <div class="btn-group">
+        <button class="btn" onclick="create()"><i class="fas fa-plus icon"></i>Create</button>
+        <button class="btn" onclick="read()"><i class="fas fa-search icon"></i>Read</button>
+        <button class="btn" onclick="update()"><i class="fas fa-edit icon"></i>Update</button>
+        <button class="btn" onclick="del()"><i class="fas fa-trash icon"></i>Delete</button>
+    </div>
+</div>
+
+<div class="container" id="create" style="display: none;">
+    <div class="title">Enter Employee Details</div>
+    <form action="create-new" method="get">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="id">Employee ID:</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone No:</label>
+            <input type="text" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="role">Employee Role:</label>
+            <input type="text" id="role" name="role">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<div class="container" id="display" style="display: none;">
+    <button class="btn" onclick="displayAll()"><i class="fas fa-list icon"></i>Read All</button>
+    <button class="btn" onclick="displayOne()"><i class="fas fa-search icon"></i>Read One</button>
+</div>
+
+<div class="container" id="display-one" style="display: none;">
+    <div class="title">Enter Employee ID to Search</div>
+    <form action="read-one" method="get">
+        <div class="form-group">
+            <label for="id">EmpID:</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<div class="container" id="delete-one" style="display: none;">
+    <div class="title">Enter Employee ID to Delete</div>
+    <form action="del-one" method="get">
+        <div class="form-group">
+            <label for="id">EmpID:</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<div class="container" id="update" style="display: none;">
+    <div class="title">Enter Employee ID to Update</div>
+    <form action="update-one" method="get">
+        <div class="form-group">
+            <label for="id">EmpID:</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    function create() 
+	{
+        document.getElementById("main").style.display = "none";
+        document.getElementById("create").style.display = "block";
+        document.getElementById("display").style.display = "none";
+        document.getElementById("display-one").style.display = "none";
+        document.getElementById("delete-one").style.display = "none";
+        document.getElementById("update").style.display = "none";
+    }
+
+    function read() 
+	{
+        document.getElementById("main").style.display = "none";
+        document.getElementById("create").style.display = "none";
+        document.getElementById("display").style.display = "block";
+        document.getElementById("display-one").style.display = "none";
+        document.getElementById("delete-one").style.display = "none";
+        document.getElementById("update").style.display = "none";
+    }
+
+    function displayOne() 
+	{
+        document.getElementById("main").style.display = "none";
+        document.getElementById("create").style.display = "none";
+        document.getElementById("display").style.display = "none";
+        document.getElementById("display-one").style.display = "block";
+        document.getElementById("delete-one").style.display = "none";
+        document.getElementById("update").style.display = "none";
+    }    
+
+    function displayAll()
+    {
+        window.location.href = "read-all";
+    }
+
+    function update() 
+	{
+        document.getElementById("main").style.display = "none";
+        document.getElementById("create").style.display = "none";
+        document.getElementById("display").style.display = "none";
+        document.getElementById("display-one").style.display = "none";
+        document.getElementById("delete-one").style.display = "none";
+        document.getElementById("update").style.display = "block";
+    }
+
+    function del()
+	{
+        document.getElementById("main").style.display = "none";
+        document.getElementById("create").style.display = "none";
+        document.getElementById("display").style.display = "none";
+        document.getElementById("display-one").style.display = "none";
+        document.getElementById("delete-one").style.display = "block";
+        document.getElementById("update").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

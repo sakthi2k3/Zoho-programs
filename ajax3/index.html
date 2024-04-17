@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Display Student Data from XML</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 80%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+    <h1>Student Data</h1>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+        </tbody>
+    </table>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            displayStudentData(this);
+        }
+    };
+    xhttp.open("GET", "students.xml", true);
+    xhttp.send();
+});
+
+function displayStudentData(xml) 
+{
+    var xmlDoc = xml.responseXML;
+    var students = xmlDoc.getElementsByTagName("student");
+    var tableBody = document.getElementById("studentTableBody");
+
+    for (var i = 0; i < students.length; i++) 
+	{
+        var student = students[i];
+        var id = student.getElementsByTagName("id")[0].childNodes[0].nodeValue;
+        var name = student.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+        var age = student.getElementsByTagName("age")[0].childNodes[0].nodeValue;
+        var grade = student.getElementsByTagName("grade")[0].childNodes[0].nodeValue;
+
+        var row = tableBody.insertRow();
+        var idCell = row.insertCell(0);
+        var nameCell = row.insertCell(1);
+        var ageCell = row.insertCell(2);
+        var gradeCell = row.insertCell(3);
+
+        idCell.innerHTML = id;
+        nameCell.innerHTML = name;
+        ageCell.innerHTML = age;
+        gradeCell.innerHTML = grade;
+    }
+}
+</script>
+</body>
+</html>

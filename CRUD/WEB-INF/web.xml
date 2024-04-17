@@ -1,0 +1,55 @@
+<web-app>
+
+   <servlet>
+        <servlet-name>create</servlet-name>
+        <servlet-class>AddOperation</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>read1</servlet-name>
+        <servlet-class>ReadOne</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>read2</servlet-name>
+        <servlet-class>ReadAll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>delete1</servlet-name>
+        <servlet-class>DeleteOne</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>update1</servlet-name>
+        <servlet-class>FindForUpdate</servlet-class>
+    </servlet>
+		<servlet>
+        <servlet-name>update2</servlet-name>
+        <servlet-class>UpdateOperation</servlet-class>
+    </servlet>
+	
+	
+
+    <servlet-mapping>
+        <servlet-name>create</servlet-name>
+        <url-pattern>/create-new</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>read1</servlet-name>
+        <url-pattern>/read-one</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>read2</servlet-name>
+        <url-pattern>/read-all</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>delete1</servlet-name>
+		<url-pattern>/del-one</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>update1</servlet-name>
+		<url-pattern>/update-one</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>update2</servlet-name>
+		<url-pattern>/update-two</url-pattern>
+	</servlet-mapping>
+
+</web-app>
