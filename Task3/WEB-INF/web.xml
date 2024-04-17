@@ -1,0 +1,13 @@
+<web-app>
+
+<servlet>
+<servlet-name>savedata</servlet-name>
+<servlet-class>Save</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>savedata</servlet-name>
+<url-pattern>/submit</url-pattern>
+</servlet-mapping>
+
+</web-app>
