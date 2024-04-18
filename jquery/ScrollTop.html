@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Scroll to Top</title>
+<style>
+  #scroll 
+  {
+    border: 1px solid black;
+    width: 250px;
+    height: 250px;
+    overflow: auto;
+    margin: auto;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  h1 
+  {
+    margin: 5px 0;
+    padding: 0;
+  }
+  
+  button 
+  {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover 
+  {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<div id="scroll">
+  <h1>1</h1>
+  <h1>2</h1>
+  <h1>3</h1>
+  <h1>4</h1>
+  <h1>5</h1>
+  <h1>6</h1>
+  <h1>7</h1>
+  <h1>8</h1>
+  <h1>9</h1>
+  <h1>10</h1>
+</div>
+<div style="margin: auto; width: 100px;"><button id="goTop">GO TOP</button></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#goTop").click(function(){
+      $("#scroll").scrollTop(0);
+    });
+  });
+</script>
+</body>
+</html>

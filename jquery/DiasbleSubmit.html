@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disable/Enable Form Submit Button</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #inputField {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    #submitButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+    <h1>Disable/Enable Form Submit Button</h1>
+    <form id="myForm">
+        <input type="text" id="inputField" placeholder="Type something...">
+        <button type="submit" id="submitButton" disabled>Submit</button>
+    </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#inputField").on("input", function(){
+        if ($(this).val().trim() !== "") 
+        {
+            $("#submitButton").prop("disabled", false);
+        } 
+        else 
+        {
+            $("#submitButton").prop("disabled", true);
+        }
+    });
+});
+</script>
+
+</body>
+</html>

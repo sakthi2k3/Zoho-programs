@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container 
+        {
+            width: 60%;
+            margin: auto;
+            display: block;
+        }
+
+        .label_div 
+        {
+            display: inline-block;
+            margin-right: 30%;
+            width: 18%;
+        }
+
+        .input_field 
+        {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .radio_button 
+        {
+            margin: 8px;
+        }
+
+        #submit-button 
+        {
+            margin-top: 50px;
+            padding: 7px 25px; 
+            border: 2px solid lightcoral;
+            background-color: white; 
+            color: gray; 
+            font-size: 16px;
+        }
+    </style>
+
+    <title>ZOHO</title>
+    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/OIP.FvwNS8xQHoO0cJFOXJBfxQHaCp?w=1202&h=430&rs=1&pid=ImgDetMain">
+</head>
+<body>
+    <div style="margin:20px;">
+        <h4 style="margin-top:20px;" id="date_time"></h4>
+		<div style="margin-left:40%;">
+            <img src="https://logos-download.com/wp-content/uploads/2016/10/Zoho_logo.png" width=260 height=120 alt="ZOHO">
+		</div>
+    </div>
+    <div class="container">
+        <h1 style="color:gray;">Interview survey</h1>
+        <h3 style="color:gray;">Enter all details</h3>
+        <hr style="border-color:rgb(255, 95, 21);">
+    </div>
+    <div class="container">
+        <h1 id="fn"></h1>
+        <h1 id="ln"></h1>
+    </div>
+    <form id="myForm" onsubmit="return loadName()">
+        <div class="container" id="main">
+            <div style="margin: 10px; margin-top: 20px;">
+                <div class="label_div">
+                    <label for="First_Name">First Name <span style="color: red;">*</span></label><br><br>
+                </div>
+                <div class="input_field">
+                    <input id="First_Name" type="text" style="width: 300px;" ><br><br>
+                </div>
+            </div>
+            <div style="margin: 10px; margin-top: 20px;">
+                <div class="label_div">
+                    <label for="Last_Name">Last Name <span style="color: red;">*</span></label><br><br>
+                </div>
+                <div class="input_field">
+                    <input id="Last_Name" type="text" style="width: 300px;" ><br><br>
+                </div>
+            </div>
+            <div style="margin: 10px; margin-top: 20px;">
+                <div class="label_div">
+                    <label for="Mobile">Mobile Number <span style="color: red;">*</span></label><br><br>
+                </div>
+                <div class="input_field">
+                    <input id="Mobile" type="text" style="width: 300px;" ><br><br>
+                </div>
+            </div>
+            <div style="margin: 10px; margin-top: 20px;">
+                <div class="label_div">
+                    <label for="Email">Email <span style="color: red;">*</span></label><br><br>
+                </div>
+                <div class="input_field">
+                    <input id="Email" type="Email" style="width: 300px;" ><br><br>
+                </div>
+            </div>
+            <div style="margin: 10px; margin-top: 20px;">
+                <div class="label_div">
+                    <label for="CLG_Name">College Name <span style="color: red;">*</span></label><br><br>
+                </div>
+                <div class="input_field">
+                    <input id="CLG_Name" type="text" style="width: 300px;" ><br><br>
+                </div>
+            </div>
+            <div style="margin: 10px; margin-top: 20px;">
+                <div class="label_div">
+                    <label for="Address">Address <span style="color: red;">*</span></label><br><br>
+                </div>
+                <div class="input_field">
+                    <textarea rows="5" style="width: 300px;" id="Issue_Description" placeholder="Enter your Address" ></textarea><br><br>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <input type="submit" value="submit" id="submit-button">
+            </div>
+        </div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function checkFields() {
+                var empty = false;
+                $('input, textarea').each(function(){
+                    if ($(this).val().trim() === '') {
+                        empty = true;
+                        return false; d
+                    }
+                });
+                return empty;
+            }
+
+            
+            $('#myForm').submit(function(){
+                if (checkFields()) {
+                    alert('Please fill in all  fields!');
+                    return false; 
+                }
+                return true; 
+            });
+        });
+    </script>
+</body>
+</html>

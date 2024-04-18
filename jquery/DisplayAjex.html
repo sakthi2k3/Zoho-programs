@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display New Text with AJAX</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#loadTextBtn").click(function(){
+        $.ajax({
+            url: "example.txt", 
+            type: "GET",
+            success: function(response){
+                $("#displayText").text(response); 
+            },
+            error: function(xhr, status, error){
+                console.error("Error occurred:", error);
+            }
+        });
+    });
+});
+</script>
+</head>
+<body>
+    <div>
+        <button id="loadTextBtn">Load New Text</button>
+    </div>
+    <div id="displayText">Click the button to load new text.</div>
+</body>
+</html>
