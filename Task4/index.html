@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details Form</title>
+    <style>
+        body 
+		{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin-top: 10%;
+            padding: 0;
+        }
+        .container 
+		{
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 
+		{
+            text-align: center;
+            color: #333;
+        }
+        form 
+		{
+            margin-top: 20px;
+        }
+        label 
+		{
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"] 
+		{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] 
+		{
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover 
+		{
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Student Details</h2>
+        <form action="result" method="post">
+            <label for="seatNo">Seat No:</label>
+            <input type="text" name="seatNo" id="seatNo">
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+
+            <label for="class">Class:</label>
+            <input type="text" name="class" id="class">
+
+            <label for="totalMarks">Total Marks:</label>
+            <input type="text" name="totalMarks" id="totalMarks">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <form action="list" method="get">
+        <div class="container">
+        <input type="submit" value="Get student Details ">
+        </div>
+    </form>
+</body>
+</html>
