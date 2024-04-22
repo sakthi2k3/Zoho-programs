@@ -1,0 +1,14 @@
+<web-app>
+
+   <servlet>
+        <servlet-name>reg</servlet-name>
+        <servlet-class>RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>reg</servlet-name>
+        <url-pattern>/reg-student</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
