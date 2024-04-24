@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body 
+		{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #loginContainer 
+		{
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        h2 
+		{
+            text-align: center;
+        }
+
+        form 
+		{
+            display: flex;
+            flex-direction: column;
+        }
+
+        label 
+		{
+            margin-bottom: 5px;
+        }
+
+        input 
+		{
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button 
+		{
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover 
+		{
+            background-color: #0056b3;
+        }
+
+        .error 
+		{
+            color: #dc3545;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $('#loginForm').submit(function(event){
+                event.preventDefault(); 
+
+                var formData = {
+                    username: $('#username').val(),
+                    password: $('#password').val()
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'login', 
+                    data: formData,
+                    success: function(response){
+						
+                        if(response !== 'failure') 
+						{
+							window.alert('success');
+                            $('#loginContainer').html(response);
+							$('title').text(response);
+                        } 
+						else 
+						{
+                            window.alert('Invalid username or password.');
+                        }
+                    },
+                    error: function(xhr, status, error){
+                        console.error(xhr.responseText);
+                        alert('An error occurred while processing your request.');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="loginContainer">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+

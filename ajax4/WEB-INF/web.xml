@@ -1,0 +1,12 @@
+
+
+<web-app>
+    <servlet>
+        <servlet-name>dbms</servlet-name>
+        <servlet-class>DataServlet</servlet-class> <!-- Corrected servlet class name -->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dbms</servlet-name>
+        <url-pattern>/DataServlet</url-pattern> <!-- Corrected URL pattern -->
+    </servlet-mapping>
+</web-app>

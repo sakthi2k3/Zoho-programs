@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body 
+		{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 
+		{
+            text-align: center;
+        }
+
+        #insertForm, #viewStudents 
+		{
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #insertForm h2, #viewStudents h2 
+		{
+            margin-top: 0;
+        }
+
+        form label 
+		{
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="date"],
+        form input[type="email"],
+        form input[type="submit"] 
+		{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        form input[type="submit"] 
+		{
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover 
+		{
+            background-color: #45a049;
+        }
+
+        table 
+		{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td 
+		{
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th 
+		{
+            background-color: #f2f2f2;
+        }
+		#viewAllStudents
+		{
+			background-color: #007bff; 
+			color: white; 
+			border: none; 
+			border-radius: 5px; 
+			padding: 10px 20px; 
+			margin: 5px; 
+			cursor: pointer; 
+			transition: background-color 0.3s ease;
+		}
+    </style>
+</head>
+<body>
+    <h1>Student Management System</h1>
+
+    <div id="insertForm">
+        <h2>Insert Student</h2>
+        <form id="insertStudentForm">
+            <label for="regNo">Registration Number:</label><br>
+            <input type="text" id="regNo" name="regNo"><br>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="text" id="dob" name="dob"><br>
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" name="address"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="cgpa">CGPA:</label><br>
+            <input type="text" id="cgpa" name="cgpa"><br><br>
+            <input type="submit" value="Insert Student">
+        </form>
+    </div>
+
+    <div id="viewStudents">
+        <h2>View Students</h2>
+        <button id="viewAllStudents">View All Students</button>
+        <div id="studentList"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#insertStudentForm').submit(function(event) {
+                event.preventDefault();
+                var formData = $(this).serialize();
+                $.ajax({
+                    url: 'DataServlet',
+                    method: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        alert(response);
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error: ' + error);
+                    }
+                });
+            });
+
+            $('#viewAllStudents').click(function() {
+                $.ajax({
+                    url: 'DataServlet',
+                    method: 'GET',
+                    success: function(response) {
+                        $('#studentList').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
